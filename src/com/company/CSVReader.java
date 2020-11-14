@@ -10,9 +10,12 @@ public class CSVReader implements AdapterFileReader {
         BufferedReader br = new BufferedReader(new FileReader(fileName));
         ArrayList<String> cardNo = new ArrayList<String>();
         String line = "";
+        int i = 0;
         while((line = br.readLine()) != null){
             String[] card = line.split(",");
-            cardNo.add(card[0]);
+            if(i != 0)
+                cardNo.add(card[0]);
+            i++;
         }
         return cardNo;
     }
@@ -35,13 +38,17 @@ public class CSVReader implements AdapterFileReader {
             CSVWriter writer = new CSVWriter(outputfile);
 
             // adding header to csv
-            String[] header = { "CardNo", "Type/Error" };
+            String[] header = { "CardNo", "Type", "Error" };
             writer.writeNext(header);
             for(int i = 0; i < cardNo.size(); i++) {
-                if(i != 0) {
-                    String[] data1 = {cardNo.get(i), cardType.get(i-1)};
-                    writer.writeNext(data1);
+                String error = "";
+                if(cardType.get(i) == "Wrong Card"){
+                    error = "Please enter a valid card No";
+                }else{
+                    error = "No error";
                 }
+                String[] data1 = {cardNo.get(i), cardType.get(i), error};
+                writer.writeNext(data1);
             }
             writer.close();
         }

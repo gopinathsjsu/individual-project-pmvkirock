@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><root><row><CardNumber>5410000000000000</CardNumber><CardType>MasterCard</CardType></row><row><CardNumber>4120000000000</CardNumber><CardType>Visa</CardType></row><row><CardNumber>341000000000000</CardNumber><CardType>American Express</CardType></row><row><CardNumber>6010000000000000</CardNumber><CardType>Anonymous Card</CardType></row><row><CardNumber>1234000000000000000000000</CardNumber><CardType>Wrong Card</CardType></row></root>
+[
+  {
+    "CardNumber": "5410000000000000",
+    "CardType": "MasterCard",
+    "Error": "No error"
+  },
+  {
+    "CardNumber": "4120000000000",
+    "CardType": "Visa",
+    "Error": "No error"
+  },
+  {
+    "CardNumber": "341000000000000",
+    "CardType": "American Express",
+    "Error": "No error"
+  },
+  {
+    "CardNumber": "6010000000000000",
+    "CardType": "Anonymous Card",
+    "Error": "No error"
+  }
+]

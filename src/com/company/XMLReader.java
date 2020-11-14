@@ -24,7 +24,6 @@ public class XMLReader implements AdapterFileReader{
     public ArrayList<String> readJSON(String fileName){
         return null;
     }
-
     public ArrayList<String> readXML(String fileName){
         try
         {
@@ -75,6 +74,12 @@ public class XMLReader implements AdapterFileReader{
             document.appendChild(root);
             for(int i = 0; i < cardNo.size(); i++) {
                 // employee element
+                String error = "";
+                if(cardType.get(i) == "Wrong Card"){
+                    error = "Please enter a valid card No";
+                }else{
+                    error = "No error";
+                }
                 Element employee = document.createElement("row");
 
                 root.appendChild(employee);
@@ -89,6 +94,10 @@ public class XMLReader implements AdapterFileReader{
                 Element cardT = document.createElement("CardType");
                 cardT.appendChild(document.createTextNode(cardType.get(i)));
                 employee.appendChild(cardT);
+
+                Element errorMessage = document.createElement("Error");
+                errorMessage.appendChild(document.createTextNode(error));
+                employee.appendChild(errorMessage);
             }
             // create the xml file
             //transform the DOM Object to an XML File

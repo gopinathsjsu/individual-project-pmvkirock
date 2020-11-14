@@ -65,12 +65,20 @@ public class JSONReader implements AdapterFileReader {
         JSONArray card_arr = new JSONArray();
 
         for (int i = 0; i < cardNo.size(); i++) {
+            String error = "";
+            if(cardType.get(i) == "Wrong Card"){
+                error = "Please enter a valid card No";
+            }else{
+                error = "No error";
+            }
+
             JSONObject curr_card = new JSONObject();
             String temp = cardNo.get(i);
             String type = cardType.get(i);
 
             curr_card.put("CardNumber", temp);
             curr_card.put("CardType", type);
+            curr_card.put("Error", error);
             card_arr.put(curr_card);
         }
         try {
