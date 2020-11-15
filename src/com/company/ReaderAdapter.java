@@ -27,13 +27,13 @@ public class ReaderAdapter implements FileReader {
         }
     }
 
-    public void write(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType){
+    public void write(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName){
         if(readerType.equalsIgnoreCase("csv")){
-            adapterFileReader.writeCSV(readerType, cardNo, cardType);
+            adapterFileReader.writeCSV(readerType, cardNo, cardType, fileName);
         }else if(readerType.equalsIgnoreCase("json")){
-            adapterFileReader.writeJSON(readerType, cardNo, cardType);
+            adapterFileReader.writeJSON(readerType, cardNo, cardType, fileName);
         }else{
-            adapterFileReader.writeXML(readerType, cardNo, cardType);
+            adapterFileReader.writeXML(readerType, cardNo, cardType, fileName);
         }
     }
 }

@@ -52,15 +52,15 @@ public class XMLReader implements AdapterFileReader{
         return null;
     }
 
-    public void writeCSV(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType){
+    public void writeCSV(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName){
 
     }
 
-    public void writeJSON(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType){
+    public void writeJSON(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName){
 
     }
 
-    public void writeXML(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType){
+    public void writeXML(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName){
         try {
 
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -104,12 +104,7 @@ public class XMLReader implements AdapterFileReader{
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource domSource = new DOMSource(document);
-            StreamResult streamResult = new StreamResult(new File("/Users/haackpad/Desktop/Desktop - MacBook Pro/CMPE 202/individual-project-pmvkirock/src/com/company/Output.xml"));
-
-            // If you use
-            // StreamResult result = new StreamResult(System.out);
-            // the output will be pushed to the standard output ...
-            // You can use that for debugging
+            StreamResult streamResult = new StreamResult(new File(fileName + ".xml"));
 
             transformer.transform(domSource, streamResult);
 

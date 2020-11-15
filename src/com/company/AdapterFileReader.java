@@ -9,7 +9,7 @@ public interface AdapterFileReader {
     public ArrayList<String> readJSON(String fileName);
     public ArrayList<String> readXML(String fileName);
 
-    public void writeCSV(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType);
-    public void writeJSON(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType);
-    public void writeXML(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType);
+    public void writeCSV(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName);
+    public void writeJSON(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName);
+    public void writeXML(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName);
 }

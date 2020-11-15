@@ -28,8 +28,8 @@ public class CSVReader implements AdapterFileReader {
         return null;
     }
 
-    public void writeCSV(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType){
-        File file = new File("/Users/haackpad/Desktop/Desktop - MacBook Pro/CMPE 202/individual-project-pmvkirock/src/com/company/Output.csv");
+    public void writeCSV(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName){
+        File file = new File(fileName + ".csv");
         try {
             // create FileWriter object with file as parameter
             FileWriter outputfile = new FileWriter(file);
@@ -57,11 +57,11 @@ public class CSVReader implements AdapterFileReader {
         }
     }
 
-    public void writeJSON(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType){
+    public void writeJSON(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName){
 
     }
 
-    public void writeXML(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType){
+    public void writeXML(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName){
 
     }
 }

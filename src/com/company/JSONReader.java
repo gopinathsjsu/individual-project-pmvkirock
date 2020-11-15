@@ -1,35 +1,14 @@
 package com.company;
 
-import com.opencsv.CSVWriter;
-
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import org.json.simple.*;
-import java.io.FileReader;
-import java.util.Iterator;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.math.BigDecimal;
+
 import java.math.BigInteger;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-
-import org.json.simple.parser.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 public class JSONReader implements AdapterFileReader {
     public ArrayList<String> readCSV(String fileName){
@@ -42,7 +21,7 @@ public class JSONReader implements AdapterFileReader {
             ArrayList<String> cardNo = new ArrayList<String>();
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject curr_card = arr.getJSONObject(i);
-                Long bd = curr_card.getLong("CardNumber");
+                BigInteger bd = curr_card.getBigInteger("CardNumber");
                 //get issuer of the card
                 String x = bd.toString();
                 cardNo.add(x);
@@ -57,11 +36,11 @@ public class JSONReader implements AdapterFileReader {
         return null;
     }
 
-    public void writeCSV(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType){
+    public void writeCSV(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName){
 
     }
 
-    public void writeJSON(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType){
+    public void writeJSON(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName){
         JSONArray card_arr = new JSONArray();
 
         for (int i = 0; i < cardNo.size(); i++) {
@@ -82,7 +61,7 @@ public class JSONReader implements AdapterFileReader {
             card_arr.put(curr_card);
         }
         try {
-            FileWriter file = new FileWriter("/Users/haackpad/Desktop/Desktop - MacBook Pro/CMPE 202/individual-project-pmvkirock/src/com/company/Output.json");
+            FileWriter file = new FileWriter(fileName + ".json");
             file.write(card_arr.toString(2));
             file.close();
         } catch (IOException e) {
@@ -90,7 +69,7 @@ public class JSONReader implements AdapterFileReader {
         }
     }
 
-    public void writeXML(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType){
+    public void writeXML(String readerType, ArrayList<String> cardNo, ArrayList<String> cardType, String fileName){
 
     }
 }
